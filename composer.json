@@ -1,0 +1,16 @@
+{
+    "name": "krishnakodoth/log-view",
+    "description": "Displays laravel logs in datatable view",
+    "type": "laravel-plugin",
+    "require": {
+        "monolog/monolog": "1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Krishnaprasad K",
+            "email": "krishnanova@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
