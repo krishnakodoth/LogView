@@ -1,8 +1,8 @@
-<?php 
-namespace KPsLogView;
+<?php
+namespace krishnakodoth\LogView;
 use AppHttpControllersController;
 use AppUser;
-class LogViewController extends Controller {
+class LogViewerController extends Controller {
 	/**
 	* Display an object with a Welcome Status
 	*
@@ -18,9 +18,9 @@ class LogViewController extends Controller {
 	* @return Response
 	*/
 	public function index($username){
-		$options = array('http' => array('user_agent'=> config('LogView.user-agent')));
+		$options = array('http' => array('user_agent'=> config('DevStatus.user-agent')));
 		$context = stream_context_create($options);
-		$url = config('LogView.url') . "/users/" . urlencode($username);
+		$url = config('DevStatus.url') . "/users/" . urlencode($username);
 		$result = json_decode(file_get_contents($url, true, $context));
 		$name = $result->name;
 		$public_repos = $result->public_repos;
@@ -41,6 +41,5 @@ class LogViewController extends Controller {
 		return response([
 		   'Developer Status' => $finalStatus
 		]);
-
 	}
 }
